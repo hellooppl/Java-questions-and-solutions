@@ -1,5 +1,5 @@
-package codingwars;
-
+// this will add sub array to give a certain result.
+// eg {1,5,10}   // 5+1 =6
 import java.util.Scanner;
 
 public class subarraySum {
