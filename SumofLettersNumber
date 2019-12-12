@@ -1,0 +1,68 @@
+# basic to convert
+def convert(x):
+    switcher = {
+        0:4,
+        1:3,
+        2:3,
+        3:5,
+        4:4,
+        5:4,
+        6:3,
+        7:5,
+        8:5,
+        9:4,
+    }
+
+    return switcher.get(x)
+
+def convertTex(f):
+    switcher={
+        10:3, #ten
+        11:6,
+        12:6,
+        13:8,
+        14:8,
+        15:8,
+        16:8,
+        17:9,
+        18:8,
+        19:8,
+
+    }
+    return switcher.get(f)
+
+def convertTex2(g):
+    swithcher ={
+        2:6,  #twenty
+        3:6,  #thirty
+        4:5,  #forty
+        5:5,    # fifty
+        6:5,    #sixty
+        7:7,    #seventy
+        8:6,    #eighty
+        9:6,     #ninety
+    }
+    return swithcher.get(g)
+
+
+def tens(tx):
+
+    if len(str(tx))==2:
+        R = tx % 10
+        l = int(tx /10)
+        print(R,l)
+        # return convertTex(f) if l <=1  else 
+        return (convertTex(tx)) if l<=1 else convertTex2(R)+tens(l)
+
+    elif len(str(tx))>=3:
+        R = tx % 100
+        l = int(tx /100)
+        print("Remainder",R, "l" ,l)
+        return tens(l) + tens(R) + 7 if R>0 else tens(l)+7  
+    elif len(str(tx))==1:
+        return convert(tx)
+
+
+
+print(tens(1001))
+
